@@ -16,9 +16,9 @@ pw = 'Cisco123!'
 
 #response = requests.request('POST', url, headers=headers, data = payload)
 
-response = requests.post(url, auth=(user, pw)).json()
+response = requests.request("POST", url, auth=(user, pw), verify=False)
 
-token = response['Token']
+token = response.json()['Token']
 
 print(response.text.encode('utf8'))
 
